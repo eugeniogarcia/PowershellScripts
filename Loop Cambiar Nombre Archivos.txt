@@ -1,0 +1,2 @@
+Get-ChildItem -Path .\|%{$_.name.substring(0,20)}
+Get-ChildItem -Path .\|%{rename-item -Path .\$_ -NewName $_.name.substring(0,25)}
