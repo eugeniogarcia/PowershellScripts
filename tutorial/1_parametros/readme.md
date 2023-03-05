@@ -1,3 +1,5 @@
+## parametros obligatorios
+
 Forzamos con código a que el parametro se informe:
 
 ```ps
@@ -27,11 +29,29 @@ Param(
 )
 ```
 
+## valores por defecto
+
 Podemos dar valores por defecto:
 
 ```ps
 Param(
   [string]$Path = './app',
   [string]$DestinationPath = './'
+)
+```
+
+## switch
+
+Switches son un caso especial. Se trata de parámetros que aceptan un valor booleano, pero con la particularidad de que el valor es marcado como true solo cuando el switch es incluido en la línea de comandos. Por ejemplo `-Recurse`:
+
+```ps
+Get-ChildItem c:\ -Recurse
+```
+
+```ps
+Param(
+  [string]$Path = './app',
+  [string]$DestinationPath = './'
+  [switch]$PathIsWebApp
 )
 ```
